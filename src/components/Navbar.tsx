@@ -9,7 +9,6 @@ const navItems = [
   { label: "Skills", href: "#skills" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
-  { label: "Connect", href: "#connect" },
 ];
 
 export default function Navbar() {
