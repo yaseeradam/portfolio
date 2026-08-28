@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-[#0c0805] text-[#e6ded8] selection:bg-orange-500/30 selection:text-orange-300">
+    <main className="relative min-h-screen bg-black text-white selection:bg-orange-500/30 selection:text-orange-300 font-sans">
       {/* Top Floating Navbar */}
       <Navbar />
 
