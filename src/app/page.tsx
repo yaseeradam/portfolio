@@ -3,7 +3,6 @@ import HeroSection from "@/components/HeroSection";
 import SkillsSection from "@/components/SkillsSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ExperienceSection from "@/components/ExperienceSection";
-import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -12,7 +11,7 @@ export default function Home() {
       {/* Top Floating Navbar */}
       <Navbar />
 
-      {/* Hero Section with 3D Avatar & Floating Badges */}
+      {/* Hero Section with 3D Avatar & Revolving Orbit */}
       <HeroSection />
 
       {/* Technical Skills Grid */}
@@ -23,9 +22,6 @@ export default function Home() {
 
       {/* Experience & Stats Counter */}
       <ExperienceSection />
-
-      {/* Interactive Contact & Socials */}
-      <ContactSection />
 
       {/* Minimal Footer */}
       <Footer />

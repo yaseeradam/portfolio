@@ -88,7 +88,7 @@ export default function HeroSection() {
           {/* CTA Buttons */}
           <div className="flex items-center gap-4 pt-2">
             <a
-              href="#connect"
+              href="mailto:yaseeradam@gmail.com"
               className="px-8 py-4 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold text-sm sm:text-base shadow-[0_0_30px_rgba(249,115,22,0.45)] hover:shadow-[0_0_50px_rgba(249,115,22,0.65)] transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2.5 group"
             >
               <span>Hire me</span>
