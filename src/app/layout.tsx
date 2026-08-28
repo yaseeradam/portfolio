@@ -13,6 +13,14 @@ export const metadata: Metadata = {
   description: "Portfolio of Yaseer K Adam - Full-Stack Developer & Mobile Engineer specializing in Next.js, React, Node.js, Flutter, and AI Systems.",
   keywords: ["Yaseer Adam", "Yaseer K Adam", "Full-Stack Developer", "Next.js", "React", "Flutter", "Software Engineer", "Portfolio"],
   authors: [{ name: "Yaseer K Adam", url: "https://github.com/yaseeradam" }],
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
   openGraph: {
     title: "Yaseer K Adam | Full-Stack & Mobile Software Engineer",
     description: "Portfolio of Yaseer K Adam - Crafting high performance web & mobile applications.",
@@ -35,4 +43,3 @@ export default function RootLayout({
     </html>
   );
 }
-
