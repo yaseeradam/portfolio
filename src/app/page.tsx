@@ -17,11 +17,11 @@ export default function Home() {
       {/* Technical Skills Grid */}
       <SkillsSection />
 
-      {/* GitHub Featured Projects */}
-      <ProjectsSection />
-
       {/* Experience & Stats Counter */}
       <ExperienceSection />
+
+      {/* GitHub Featured Projects */}
+      <ProjectsSection />
 
       {/* Minimal Footer */}
       <Footer />
