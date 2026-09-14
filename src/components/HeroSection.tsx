@@ -14,34 +14,78 @@ import {
   GitIcon,
 } from "@/components/icons/TechIcons";
 
+const orbitBadges = [
+  {
+    label: "React",
+    sub: "Build interactive UIs",
+    icon: <ReactIcon className="w-5 h-5" />,
+    angle: 0,
+    accentBorder: "hover:border-cyan-400/60",
+    glow: "rgba(34,211,238,0.25)",
+  },
+  {
+    label: "Next.js",
+    sub: "Modern Web Apps",
+    icon: <NextIcon className="w-4 h-4 text-white" />,
+    angle: (360 / 7) * 1,
+    accentBorder: "hover:border-white/50",
+    glow: "rgba(255,255,255,0.25)",
+  },
+  {
+    label: "TypeScript",
+    sub: "Better Code",
+    icon: <TypeScriptIcon className="w-5 h-5 rounded" />,
+    angle: (360 / 7) * 2,
+    accentBorder: "hover:border-blue-400/60",
+    glow: "rgba(59,130,246,0.25)",
+  },
+  {
+    label: "Node.js",
+    sub: "Powerful Backend",
+    icon: <NodeIcon className="w-5 h-5" />,
+    angle: (360 / 7) * 3,
+    accentBorder: "hover:border-emerald-400/60",
+    glow: "rgba(52,211,153,0.25)",
+  },
+  {
+    label: "Tailwind CSS",
+    sub: "Beautiful Styling",
+    icon: <TailwindIcon className="w-5 h-5" />,
+    angle: (360 / 7) * 4,
+    accentBorder: "hover:border-cyan-400/60",
+    glow: "rgba(6,182,212,0.25)",
+  },
+  {
+    label: "PostgreSQL",
+    sub: "Reliable Database",
+    icon: <PostgreSqlIcon className="w-5 h-5" />,
+    angle: (360 / 7) * 5,
+    accentBorder: "hover:border-sky-400/60",
+    glow: "rgba(56,189,248,0.25)",
+  },
+  {
+    label: "Git & GitHub",
+    sub: "Version Control",
+    icon: <GitIcon className="w-5 h-5" />,
+    angle: (360 / 7) * 6,
+    accentBorder: "hover:border-orange-400/60",
+    glow: "rgba(249,115,22,0.25)",
+  },
+];
+
 export default function HeroSection() {
+  const orbitRadius = 245;
+
   return (
     <section
       id="home"
       className="relative min-h-[95vh] pt-28 pb-16 px-4 sm:px-8 flex items-center justify-center overflow-hidden bg-black"
     >
-      {/* Background Ambient Studio Image with smooth mask to black */}
+      {/* Background Lighting & Glow Effects */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        {/* Person & Office Image placed on right side */}
-        <div className="absolute top-0 right-0 w-full lg:w-[65%] h-full">
-          <Image
-            src="/images/port.png"
-            alt="Yaseer K Adam - Studio"
-            fill
-            priority
-            className="object-cover object-[70%_center] lg:object-[60%_center] opacity-90"
-          />
-
-          {/* Left-to-right fade overlay so text on left is crystal clear */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent lg:via-black/50" />
-
-          {/* Top and bottom subtle vignettes */}
-          <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black via-black/60 to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black via-black/80 to-transparent" />
-        </div>
-
-        {/* Subtle warm orange ambient spotlight behind character */}
-        <div className="absolute right-[10%] top-[25%] w-[450px] h-[450px] bg-[radial-gradient(circle,rgba(251,146,60,0.15),transparent_70%)] blur-3xl" />
+        {/* Warm ambient spotlight behind character area */}
+        <div className="absolute right-[5%] top-[20%] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(251,146,60,0.14),transparent_70%)] blur-3xl" />
+        <div className="absolute left-[15%] bottom-[10%] w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(249,115,22,0.08),transparent_70%)] blur-3xl" />
 
         {/* Luminous curved orange neon swoop across bottom */}
         <svg
@@ -169,10 +213,10 @@ export default function HeroSection() {
           </div>
         </motion.div>
 
-        {/* Right Column: Visual Stage with Floating Tech Cards */}
-        <div className="lg:col-span-6 relative w-full h-[520px] sm:h-[580px] lg:h-[620px] flex items-center justify-center">
+        {/* Right Column: Visual Stage with Portrait (reduced by 30%) and Circling Orbit Icons */}
+        <div className="lg:col-span-6 relative w-full min-h-[520px] sm:min-h-[580px] lg:min-h-[620px] flex items-center justify-center">
           {/* Top-Right Handwritten "Code Build Create" Accent */}
-          <div className="absolute top-2 right-4 sm:right-10 z-30 pointer-events-none select-none">
+          <div className="absolute top-2 right-4 sm:right-8 z-30 pointer-events-none select-none">
             <div className="font-[family-name:var(--font-caveat)] font-bold text-[#FBA919] text-2xl sm:text-3xl tracking-wider leading-none drop-shadow-[0_2px_10px_rgba(251,169,25,0.45)] transform rotate-[-8deg]">
               <div>Code</div>
               <div className="pl-4 pt-1">Build</div>
@@ -180,149 +224,92 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Floating Tech Stack Cards */}
-          {/* 1. React Card (Upper Left) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1, y: [0, -6, 0] }}
-            transition={{
-              opacity: { duration: 0.5, delay: 0.1 },
-              scale: { duration: 0.5, delay: 0.1 },
-              y: { duration: 4.2, repeat: Infinity, ease: "easeInOut" },
-            }}
-            className="absolute top-8 left-2 sm:left-12 z-30 px-3.5 py-2.5 rounded-2xl bg-[#0c0d12]/85 border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.7)] backdrop-blur-md flex items-center gap-3 hover:border-cyan-500/50 transition-colors group cursor-default"
-          >
-            <div className="w-9 h-9 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center shrink-0">
-              <ReactIcon className="w-5 h-5 group-hover:rotate-90 transition-transform duration-700" />
-            </div>
-            <div>
-              <p className="text-xs font-bold text-white leading-tight">React</p>
-              <p className="text-[10px] text-zinc-400 font-medium">Build interactive UIs</p>
-            </div>
-          </motion.div>
+          {/* Scale wrapper for flawless responsiveness on mobile */}
+          <div className="relative flex items-center justify-center scale-[0.72] sm:scale-[0.88] lg:scale-100 transition-transform origin-center">
+            {/* Ambient Backlight Glow Ring */}
+            <div className="absolute w-[360px] h-[400px] rounded-full bg-gradient-to-b from-orange-500/25 via-amber-500/10 to-transparent blur-2xl" />
 
-          {/* 2. Next.js Card (Mid Left) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1, y: [0, 6, 0] }}
-            transition={{
-              opacity: { duration: 0.5, delay: 0.2 },
-              scale: { duration: 0.5, delay: 0.2 },
-              y: { duration: 3.8, repeat: Infinity, ease: "easeInOut" },
-            }}
-            className="absolute top-[35%] left-0 sm:left-4 z-30 px-3.5 py-2.5 rounded-2xl bg-[#0c0d12]/85 border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.7)] backdrop-blur-md flex items-center gap-3 hover:border-white/40 transition-colors group cursor-default"
-          >
-            <div className="w-9 h-9 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center shrink-0">
-              <NextIcon className="w-4 h-4 text-white" />
-            </div>
-            <div>
-              <p className="text-xs font-bold text-white leading-tight">Next.js</p>
-              <p className="text-[10px] text-zinc-400 font-medium">Modern Web Apps</p>
-            </div>
-          </motion.div>
+            {/* Orbit Dashed Guideline Ring */}
+            <div
+              style={{
+                width: orbitRadius * 2 + 10,
+                height: orbitRadius * 2 + 10,
+              }}
+              className="absolute rounded-full border border-dashed border-white/15 pointer-events-none"
+            />
 
-          {/* 3. Node.js Card (Lower Left) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1, y: [0, -5, 0] }}
-            transition={{
-              opacity: { duration: 0.5, delay: 0.3 },
-              scale: { duration: 0.5, delay: 0.3 },
-              y: { duration: 4.6, repeat: Infinity, ease: "easeInOut" },
-            }}
-            className="absolute top-[62%] left-2 sm:left-10 z-30 px-3.5 py-2.5 rounded-2xl bg-[#0c0d12]/85 border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.7)] backdrop-blur-md flex items-center gap-3 hover:border-emerald-500/50 transition-colors group cursor-default"
-          >
-            <div className="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0">
-              <NodeIcon className="w-5 h-5" />
-            </div>
-            <div>
-              <p className="text-xs font-bold text-white leading-tight">Node.js</p>
-              <p className="text-[10px] text-zinc-400 font-medium">Powerful Backend</p>
-            </div>
-          </motion.div>
+            {/* Central Portrait of Yaseer Adam (Reduced in size by ~30% with smooth frame) */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="relative z-10 w-[270px] h-[310px] sm:w-[320px] sm:h-[370px] rounded-[32px] p-1.5 bg-gradient-to-b from-orange-500/40 via-white/10 to-white/5 shadow-[0_0_60px_rgba(251,146,60,0.25)] backdrop-blur-sm"
+            >
+              <div className="w-full h-full rounded-[26px] overflow-hidden relative border border-white/15 bg-[#090a0d]">
+                <Image
+                  src="/images/port.png"
+                  alt="Yaseer K Adam"
+                  fill
+                  priority
+                  className="object-cover object-[50%_35%] hover:scale-105 transition-transform duration-700"
+                />
+                {/* Subtle vignette inside frame */}
+                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
+                <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-black/40 to-transparent" />
+              </div>
+            </motion.div>
 
-          {/* 4. Tailwind CSS Card (Upper Right) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1, y: [0, -6, 0] }}
-            transition={{
-              opacity: { duration: 0.5, delay: 0.25 },
-              scale: { duration: 0.5, delay: 0.25 },
-              y: { duration: 4.0, repeat: Infinity, ease: "easeInOut" },
-            }}
-            className="absolute top-14 right-2 sm:right-6 z-30 px-3.5 py-2.5 rounded-2xl bg-[#0c0d12]/85 border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.7)] backdrop-blur-md flex items-center gap-3 hover:border-cyan-400/50 transition-colors group cursor-default"
-          >
-            <div className="w-9 h-9 rounded-xl bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center shrink-0">
-              <TailwindIcon className="w-5 h-5" />
-            </div>
-            <div>
-              <p className="text-xs font-bold text-white leading-tight">Tailwind CSS</p>
-              <p className="text-[10px] text-zinc-400 font-medium">Beautiful Styling</p>
-            </div>
-          </motion.div>
+            {/* Continuous 360° Revolving Orbit Ring */}
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 32, repeat: Infinity, ease: "linear" }}
+              className="absolute flex items-center justify-center pointer-events-none z-20"
+              style={{
+                width: orbitRadius * 2,
+                height: orbitRadius * 2,
+              }}
+            >
+              {orbitBadges.map((badge) => {
+                const angleRad = (badge.angle * Math.PI) / 180;
+                const x = Math.cos(angleRad) * orbitRadius;
+                const y = Math.sin(angleRad) * orbitRadius;
 
-          {/* 5. TypeScript Card (Mid Right) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1, y: [0, 5, 0] }}
-            transition={{
-              opacity: { duration: 0.5, delay: 0.35 },
-              scale: { duration: 0.5, delay: 0.35 },
-              y: { duration: 4.4, repeat: Infinity, ease: "easeInOut" },
-            }}
-            className="absolute top-[38%] right-0 sm:right-2 z-30 px-3.5 py-2.5 rounded-2xl bg-[#0c0d12]/85 border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.7)] backdrop-blur-md flex items-center gap-3 hover:border-blue-500/50 transition-colors group cursor-default"
-          >
-            <div className="w-9 h-9 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0">
-              <TypeScriptIcon className="w-5 h-5 rounded" />
-            </div>
-            <div>
-              <p className="text-xs font-bold text-white leading-tight">TypeScript</p>
-              <p className="text-[10px] text-zinc-400 font-medium">Better Code</p>
-            </div>
-          </motion.div>
-
-          {/* 6. PostgreSQL Card (Lower Mid Right) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1, y: [0, -5, 0] }}
-            transition={{
-              opacity: { duration: 0.5, delay: 0.45 },
-              scale: { duration: 0.5, delay: 0.45 },
-              y: { duration: 3.9, repeat: Infinity, ease: "easeInOut" },
-            }}
-            className="absolute top-[58%] right-2 sm:right-8 z-30 px-3.5 py-2.5 rounded-2xl bg-[#0c0d12]/85 border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.7)] backdrop-blur-md flex items-center gap-3 hover:border-sky-500/50 transition-colors group cursor-default"
-          >
-            <div className="w-9 h-9 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center shrink-0">
-              <PostgreSqlIcon className="w-5 h-5" />
-            </div>
-            <div>
-              <p className="text-xs font-bold text-white leading-tight">PostgreSQL</p>
-              <p className="text-[10px] text-zinc-400 font-medium">Reliable Database</p>
-            </div>
-          </motion.div>
-
-          {/* 7. Git & GitHub Card (Bottom Right) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1, y: [0, 6, 0] }}
-            transition={{
-              opacity: { duration: 0.5, delay: 0.55 },
-              scale: { duration: 0.5, delay: 0.55 },
-              y: { duration: 4.8, repeat: Infinity, ease: "easeInOut" },
-            }}
-            className="absolute top-[76%] right-0 sm:right-4 z-30 px-3.5 py-2.5 rounded-2xl bg-[#0c0d12]/85 border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.7)] backdrop-blur-md flex items-center gap-3 hover:border-orange-500/50 transition-colors group cursor-default"
-          >
-            <div className="w-9 h-9 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center shrink-0">
-              <GitIcon className="w-5 h-5" />
-            </div>
-            <div>
-              <p className="text-xs font-bold text-white leading-tight">Git &amp; GitHub</p>
-              <p className="text-[10px] text-zinc-400 font-medium">Version Control</p>
-            </div>
-          </motion.div>
+                return (
+                  <div
+                    key={badge.label}
+                    style={{
+                      position: "absolute",
+                      transform: `translate(${x}px, ${y}px)`,
+                    }}
+                    className="pointer-events-auto"
+                  >
+                    {/* Counter-rotation to keep the badge upright */}
+                    <motion.div
+                      animate={{ rotate: -360 }}
+                      transition={{ duration: 32, repeat: Infinity, ease: "linear" }}
+                      whileHover={{ scale: 1.15 }}
+                      className={`px-3.5 py-2 rounded-2xl bg-[#0b0c10]/90 backdrop-blur-xl border border-white/15 shadow-[0_8px_32px_rgba(0,0,0,0.7)] flex items-center gap-2.5 text-xs font-bold text-white transition-all cursor-pointer group select-none ${badge.accentBorder}`}
+                    >
+                      <div className="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 shadow-inner group-hover:scale-105 transition-transform">
+                        {badge.icon}
+                      </div>
+                      <div className="flex flex-col text-left">
+                        <span className="text-xs font-bold text-white leading-tight group-hover:text-[#FBA919] transition-colors whitespace-nowrap">
+                          {badge.label}
+                        </span>
+                        <span className="text-[10px] text-zinc-400 font-medium whitespace-nowrap">
+                          {badge.sub}
+                        </span>
+                      </div>
+                    </motion.div>
+                  </div>
+                );
+              })}
+            </motion.div>
+          </div>
 
           {/* Bottom Right Project Status Pill */}
-          <div className="absolute -bottom-4 sm:bottom-2 right-2 sm:right-6 z-30">
+          <div className="absolute -bottom-2 sm:bottom-2 right-2 sm:right-6 z-30">
             <a
               href="#projects"
               className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#0a0b0e]/90 border border-white/15 hover:border-white/30 text-xs font-medium text-zinc-200 backdrop-blur-md shadow-lg transition-all group"
