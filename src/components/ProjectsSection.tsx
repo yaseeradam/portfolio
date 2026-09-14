@@ -34,20 +34,20 @@ import {
 interface Project {
   id: string;
   title: string;
-  category: "all" | "web" | "mobile" | "desktop" | "opensource";
+  categories: ("web" | "mobile" | "desktop" | "opensource")[];
   badge: { label: string; color: string };
   image: string;
   description: string;
   tags: { name: string; icon?: React.ReactNode }[];
   liveUrl?: string;
-  githubUrl?: string;
+  githubUrl: string;
 }
 
 const projectsList: Project[] = [
   {
     id: "police-record-system",
     title: "Police Record System",
-    category: "web",
+    categories: ["web", "desktop", "opensource"],
     badge: { label: "Web App", color: "text-sky-400 bg-sky-500/10 border-sky-500/20" },
     image: "/images/projects/police.png",
     description:
@@ -58,13 +58,12 @@ const projectsList: Project[] = [
       { name: "Tailwind", icon: <TailwindIcon className="w-3.5 h-3.5" /> },
       { name: "PostgreSQL", icon: <PostgreSqlIcon className="w-3.5 h-3.5" /> },
     ],
-    liveUrl: "https://police-record-system.vercel.app",
-    githubUrl: "https://github.com/yaseeradam",
+    githubUrl: "https://github.com/yaseeradam/FrontalMindsDRS",
   },
   {
     id: "academyhub-dashboard",
     title: "AcademyHub Dashboard",
-    category: "web",
+    categories: ["web", "opensource"],
     badge: { label: "Web App", color: "text-indigo-400 bg-indigo-500/10 border-indigo-500/20" },
     image: "/images/projects/academyhub.png",
     description:
@@ -75,13 +74,13 @@ const projectsList: Project[] = [
       { name: "Tailwind", icon: <TailwindIcon className="w-3.5 h-3.5" /> },
       { name: "MongoDB", icon: <MongoDbIcon className="w-3.5 h-3.5" /> },
     ],
-    liveUrl: "https://academyhub-demo.vercel.app",
-    githubUrl: "https://github.com/yaseeradam",
+    liveUrl: "https://myacademy-pi.vercel.app",
+    githubUrl: "https://github.com/yaseeradam/AcademyHub",
   },
   {
     id: "whatsapp-bot",
     title: "AcademyHub WhatsApp Bot",
-    category: "web",
+    categories: ["web", "opensource"],
     badge: { label: "AI / Bot", color: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20" },
     image: "/images/projects/whatsapp_bot.png",
     description:
@@ -91,13 +90,13 @@ const projectsList: Project[] = [
       { name: "WhatsApp API", icon: <span className="text-[10px] font-bold text-emerald-400">WA</span> },
       { name: "OpenAI", icon: <span className="text-[10px] font-bold text-teal-400">AI</span> },
     ],
-    liveUrl: "https://academyhub-bot.vercel.app",
-    githubUrl: "https://github.com/yaseeradam",
+    liveUrl: "https://aiacademy-sandy.vercel.app",
+    githubUrl: "https://github.com/yaseeradam/aiacademy",
   },
   {
     id: "ai-marketing",
     title: "AI Marketing Landing Page",
-    category: "web",
+    categories: ["web", "opensource"],
     badge: { label: "Web App", color: "text-sky-400 bg-sky-500/10 border-sky-500/20" },
     image: "/images/projects/ai_marketing.png",
     description:
@@ -113,7 +112,7 @@ const projectsList: Project[] = [
   {
     id: "taskmaster",
     title: "TaskMaster (To-Do App)",
-    category: "mobile",
+    categories: ["mobile", "opensource"],
     badge: { label: "Mobile App", color: "text-pink-400 bg-pink-500/10 border-pink-500/20" },
     image: "/images/projects/taskmaster.png",
     description:
@@ -123,13 +122,12 @@ const projectsList: Project[] = [
       { name: "Expo", icon: <span className="text-[10px] font-bold text-white">E</span> },
       { name: "SQLite", icon: <span className="text-[10px] font-bold text-sky-400">SQL</span> },
     ],
-    liveUrl: "https://github.com/yaseeradam",
-    githubUrl: "https://github.com/yaseeradam",
+    githubUrl: "https://github.com/yaseeradam/checkpay",
   },
   {
     id: "ecommerce-store",
     title: "E-Commerce Store",
-    category: "web",
+    categories: ["web", "opensource"],
     badge: { label: "Web App", color: "text-sky-400 bg-sky-500/10 border-sky-500/20" },
     image: "/images/projects/ecommerce.png",
     description:
@@ -139,8 +137,8 @@ const projectsList: Project[] = [
       { name: "React", icon: <ReactIcon className="w-3.5 h-3.5" /> },
       { name: "Stripe", icon: <StripeIcon className="w-3.5 h-3.5" /> },
     ],
-    liveUrl: "https://ecommerce-perfume.vercel.app",
-    githubUrl: "https://github.com/yaseeradam",
+    liveUrl: "https://globalpeak-delta.vercel.app",
+    githubUrl: "https://github.com/yaseeradam/globalpeak",
   },
 ];
 
@@ -171,82 +169,91 @@ const sidebarTechList = [
 ];
 
 export default function ProjectsSection() {
-  const [activeTab, setActiveTab] = useState("all");
+  const [activeTab, setActiveTab] = useState<string>("all");
 
   const filteredProjects =
     activeTab === "all"
       ? projectsList
-      : projectsList.filter((p) => p.category === activeTab);
+      : projectsList.filter((p) => p.categories.includes(activeTab as any));
 
   return (
     <section
       id="projects"
-      className="py-24 px-4 sm:px-8 relative z-10 bg-black border-t border-white/5 overflow-hidden"
+      className="py-20 px-4 sm:px-8 relative z-10 bg-black border-t border-white/5 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto flex flex-col gap-12">
-        {/* Banner Header: Left Headline + Right Workspace Laptop Image */}
-        <div className="relative rounded-3xl bg-[#0b0c10] border border-white/10 p-8 sm:p-12 overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-8 shadow-2xl">
-          {/* Left Text */}
-          <div className="flex flex-col items-start gap-5 max-w-2xl z-10">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#16171d] border border-white/10 text-xs font-semibold text-zinc-300">
+      <div className="max-w-7xl mx-auto flex flex-col gap-10">
+        {/* Full-Width Header Banner matching the reference image */}
+        <div className="relative w-full min-h-[340px] lg:min-h-[380px] flex flex-col lg:flex-row items-center justify-between pb-10 border-b border-white/10 overflow-hidden">
+          {/* Left Text & Stats */}
+          <div className="flex flex-col items-start gap-5 max-w-xl z-10 lg:pr-6">
+            {/* Pill Tag */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#16171d] border border-white/10 text-xs font-semibold text-zinc-300 shadow-sm">
               <Folder className="w-3.5 h-3.5 text-[#FBA919]" />
               <span>My Work</span>
             </div>
 
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.08]">
+            {/* Headline */}
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.06]">
               Featured <span className="text-[#FBA919]">Projects.</span>
             </h2>
 
+            {/* Subtitle */}
             <p className="text-sm sm:text-base text-zinc-400 leading-relaxed font-normal">
               A collection of real-world projects that showcase my skills in building modern, scalable and user-friendly web applications using modern technologies.
             </p>
 
-            {/* Quick Metrics */}
-            <div className="flex flex-wrap items-center gap-6 sm:gap-8 pt-3 border-t border-white/10">
+            {/* Quick Metrics Bar */}
+            <div className="flex flex-wrap items-center gap-6 sm:gap-8 pt-4">
               <div className="flex items-center gap-2.5">
-                <Code2 className="w-4 h-4 text-[#FBA919]" />
+                <Code2 className="w-4 h-4 text-[#ff7a00]" />
                 <span className="text-sm font-bold text-white">6+</span>
                 <span className="text-xs text-zinc-400">Projects Completed</span>
               </div>
 
+              <div className="h-6 w-[1px] bg-white/10 hidden sm:block" />
+
               <div className="flex items-center gap-2.5">
-                <Star className="w-4 h-4 text-[#FBA919]" />
+                <Star className="w-4 h-4 text-[#FBA919] fill-[#FBA919]/20" />
                 <span className="text-sm font-bold text-white">100%</span>
                 <span className="text-xs text-zinc-400">Client Satisfaction</span>
               </div>
 
+              <div className="h-6 w-[1px] bg-white/10 hidden sm:block" />
+
               <div className="flex items-center gap-2.5">
-                <Clock className="w-4 h-4 text-[#FBA919]" />
+                <Clock className="w-4 h-4 text-[#2dd4bf]" />
                 <span className="text-sm font-bold text-white">2+</span>
                 <span className="text-xs text-zinc-400">Years Experience</span>
               </div>
             </div>
           </div>
 
-          {/* Right Banner Image: Laptop Setup */}
-          <div className="relative w-full lg:w-[480px] h-[240px] sm:h-[280px] rounded-2xl overflow-hidden shadow-2xl shrink-0 border border-white/10">
+          {/* Center Handwritten Flourish Accent */}
+          <div className="hidden xl:block absolute left-[45%] top-[30%] z-20 pointer-events-none select-none">
+            <div className="font-[family-name:var(--font-caveat)] font-bold text-[#FBA919] text-2xl tracking-wide rotate-[-10deg] drop-shadow-[0_2px_10px_rgba(251,169,25,0.4)]">
+              <div>Turning ideas</div>
+              <div className="pl-4 pt-1">into reality</div>
+              <div className="h-[2px] w-24 bg-[#FBA919]/60 rounded-full mt-1 ml-2" />
+            </div>
+          </div>
+
+          {/* Right Seamless Laptop Photo - NOT IN A BOX */}
+          <div className="relative w-full lg:w-[56%] h-[280px] sm:h-[340px] lg:h-[380px] pointer-events-none select-none flex items-center justify-end mt-8 lg:mt-0">
             <Image
               src="/images/projects_laptop.png"
               alt="Developer workspace"
               fill
               priority
-              className="object-cover object-center"
+              className="object-cover object-[70%_center] lg:object-[60%_center] [-webkit-mask-image:linear-gradient(to_left,black_75%,transparent_100%)] [mask-image:linear-gradient(to_left,black_75%,transparent_100%)] drop-shadow-[0_15px_40px_rgba(0,0,0,0.8)]"
             />
-            {/* Subtle dark vignette */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent" />
-
-            {/* Handwritten overlay */}
-            <div className="absolute top-4 left-6 z-10 pointer-events-none select-none">
-              <div className="font-[family-name:var(--font-caveat)] font-bold text-[#FBA919] text-xl sm:text-2xl tracking-wide rotate-[-8deg] drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-                <div>Turning ideas</div>
-                <div className="pl-4">into reality</div>
-              </div>
-            </div>
+            {/* Top and bottom soft vignettes */}
+            <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-black via-black/40 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black via-black/60 to-transparent" />
           </div>
         </div>
 
         {/* Filter Navigation Tabs */}
-        <div className="flex flex-wrap items-center gap-2.5">
+        <div className="flex flex-wrap items-center gap-2.5 pt-2">
           {filterTabs.map((tab) => {
             const isActive = activeTab === tab.id;
             return (
@@ -255,8 +262,8 @@ export default function ProjectsSection() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`px-5 py-2 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer ${
                   isActive
-                    ? "bg-[#ff6200] text-white shadow-[0_0_18px_rgba(255,98,0,0.4)]"
-                    : "bg-[#111216] text-zinc-400 border border-white/10 hover:border-white/20 hover:text-white"
+                    ? "bg-[#ff6200] text-white shadow-[0_0_18px_rgba(255,98,0,0.45)]"
+                    : "bg-[#111216] text-zinc-400 border border-white/10 hover:border-white/25 hover:text-white"
                 }`}
               >
                 {tab.label}
@@ -283,7 +290,7 @@ export default function ProjectsSection() {
                   {/* Card Body */}
                   <div>
                     {/* Project Preview Image & Badge */}
-                    <div className="relative w-full h-[180px] sm:h-[190px] bg-[#050608] overflow-hidden border-b border-white/5">
+                    <div className="relative w-full h-[185px] sm:h-[195px] bg-[#050608] overflow-hidden border-b border-white/5">
                       <Image
                         src={project.image}
                         alt={project.title}
@@ -325,10 +332,10 @@ export default function ProjectsSection() {
                     </div>
                   </div>
 
-                  {/* Card Footer: View Project Link */}
-                  <div className="px-6 pb-6 pt-2">
+                  {/* Card Footer: View Project Links with Real GitHub & Live URLs */}
+                  <div className="px-6 pb-6 pt-2 flex items-center justify-between">
                     <a
-                      href={project.liveUrl || project.githubUrl || "#"}
+                      href={project.liveUrl || project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FBA919] hover:text-amber-300 transition-colors group/link"
@@ -336,6 +343,16 @@ export default function ProjectsSection() {
                       <span>View Project</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" />
                       <ExternalLink className="w-3 h-3 text-zinc-400" />
+                    </a>
+
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs font-semibold text-zinc-400 hover:text-white transition-colors flex items-center gap-1"
+                    >
+                      <span>Code</span>
+                      <ExternalLink className="w-3 h-3" />
                     </a>
                   </div>
                 </motion.div>
@@ -346,9 +363,14 @@ export default function ProjectsSection() {
           {/* Right Sidebar: 4 Columns */}
           <div className="lg:col-span-4 flex flex-col gap-6">
             {/* Widget 1: Total Projects */}
-            <div className="p-5 rounded-3xl bg-[#0c0d12] border border-white/10 flex items-center justify-between shadow-xl">
+            <a
+              href="https://github.com/yaseeradam?tab=repositories"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-5 rounded-3xl bg-[#0c0d12] border border-white/10 hover:border-white/20 transition-all flex items-center justify-between shadow-xl group"
+            >
               <div className="flex items-center gap-3.5">
-                <div className="w-11 h-11 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-[#FBA919]">
+                <div className="w-11 h-11 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-[#FBA919] group-hover:scale-105 transition-transform">
                   <BarChart3 className="w-5 h-5 stroke-[2.5]" />
                 </div>
                 <div>
@@ -356,8 +378,8 @@ export default function ProjectsSection() {
                   <p className="text-2xl font-black text-white leading-tight">6+</p>
                 </div>
               </div>
-              <ChevronRight className="w-5 h-5 text-zinc-500" />
-            </div>
+              <ChevronRight className="w-5 h-5 text-zinc-500 group-hover:text-white group-hover:translate-x-0.5 transition-all" />
+            </a>
 
             {/* Widget 2: Technologies I Use */}
             <div className="p-6 rounded-3xl bg-[#0c0d12] border border-white/10 shadow-xl space-y-4">
