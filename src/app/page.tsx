@@ -2,7 +2,6 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import SkillsSection from "@/components/SkillsSection";
 import ProjectsSection from "@/components/ProjectsSection";
-import ExperienceSection from "@/components/ExperienceSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -16,9 +15,6 @@ export default function Home() {
 
       {/* Technical Skills Grid */}
       <SkillsSection />
-
-      {/* Experience & Stats Counter */}
-      <ExperienceSection />
 
       {/* GitHub Featured Projects */}
       <ProjectsSection />
