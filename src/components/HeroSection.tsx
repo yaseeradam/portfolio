@@ -21,7 +21,6 @@ const orbitBadges = [
     icon: <ReactIcon className="w-5 h-5" />,
     angle: 0,
     accentBorder: "hover:border-cyan-400/60",
-    glow: "rgba(34,211,238,0.25)",
   },
   {
     label: "Next.js",
@@ -29,7 +28,6 @@ const orbitBadges = [
     icon: <NextIcon className="w-4 h-4 text-white" />,
     angle: (360 / 7) * 1,
     accentBorder: "hover:border-white/50",
-    glow: "rgba(255,255,255,0.25)",
   },
   {
     label: "TypeScript",
@@ -37,7 +35,6 @@ const orbitBadges = [
     icon: <TypeScriptIcon className="w-5 h-5 rounded" />,
     angle: (360 / 7) * 2,
     accentBorder: "hover:border-blue-400/60",
-    glow: "rgba(59,130,246,0.25)",
   },
   {
     label: "Node.js",
@@ -45,7 +42,6 @@ const orbitBadges = [
     icon: <NodeIcon className="w-5 h-5" />,
     angle: (360 / 7) * 3,
     accentBorder: "hover:border-emerald-400/60",
-    glow: "rgba(52,211,153,0.25)",
   },
   {
     label: "Tailwind CSS",
@@ -53,7 +49,6 @@ const orbitBadges = [
     icon: <TailwindIcon className="w-5 h-5" />,
     angle: (360 / 7) * 4,
     accentBorder: "hover:border-cyan-400/60",
-    glow: "rgba(6,182,212,0.25)",
   },
   {
     label: "PostgreSQL",
@@ -61,7 +56,6 @@ const orbitBadges = [
     icon: <PostgreSqlIcon className="w-5 h-5" />,
     angle: (360 / 7) * 5,
     accentBorder: "hover:border-sky-400/60",
-    glow: "rgba(56,189,248,0.25)",
   },
   {
     label: "Git & GitHub",
@@ -69,12 +63,11 @@ const orbitBadges = [
     icon: <GitIcon className="w-5 h-5" />,
     angle: (360 / 7) * 6,
     accentBorder: "hover:border-orange-400/60",
-    glow: "rgba(249,115,22,0.25)",
   },
 ];
 
 export default function HeroSection() {
-  const orbitRadius = 245;
+  const orbitRadius = 265;
 
   return (
     <section
@@ -84,7 +77,7 @@ export default function HeroSection() {
       {/* Background Lighting & Glow Effects */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         {/* Warm ambient spotlight behind character area */}
-        <div className="absolute right-[5%] top-[20%] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(251,146,60,0.14),transparent_70%)] blur-3xl" />
+        <div className="absolute right-[8%] top-[20%] w-[550px] h-[550px] bg-[radial-gradient(circle,rgba(251,146,60,0.16),transparent_70%)] blur-3xl" />
         <div className="absolute left-[15%] bottom-[10%] w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(249,115,22,0.08),transparent_70%)] blur-3xl" />
 
         {/* Luminous curved orange neon swoop across bottom */}
@@ -213,8 +206,8 @@ export default function HeroSection() {
           </div>
         </motion.div>
 
-        {/* Right Column: Visual Stage with Portrait (reduced by 30%) and Circling Orbit Icons */}
-        <div className="lg:col-span-6 relative w-full min-h-[520px] sm:min-h-[580px] lg:min-h-[620px] flex items-center justify-center">
+        {/* Right Column: Visual Stage with Seamless Portrait (NO BOX) and Circling Orbit Icons */}
+        <div className="lg:col-span-6 relative w-full min-h-[540px] sm:min-h-[600px] lg:min-h-[640px] flex items-center justify-center">
           {/* Top-Right Handwritten "Code Build Create" Accent */}
           <div className="absolute top-2 right-4 sm:right-8 z-30 pointer-events-none select-none">
             <div className="font-[family-name:var(--font-caveat)] font-bold text-[#FBA919] text-2xl sm:text-3xl tracking-wider leading-none drop-shadow-[0_2px_10px_rgba(251,169,25,0.45)] transform rotate-[-8deg]">
@@ -224,10 +217,10 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Scale wrapper for flawless responsiveness on mobile */}
-          <div className="relative flex items-center justify-center scale-[0.72] sm:scale-[0.88] lg:scale-100 transition-transform origin-center">
-            {/* Ambient Backlight Glow Ring */}
-            <div className="absolute w-[360px] h-[400px] rounded-full bg-gradient-to-b from-orange-500/25 via-amber-500/10 to-transparent blur-2xl" />
+          {/* Scale wrapper for responsive presentation on all screen sizes */}
+          <div className="relative flex items-center justify-center scale-[0.75] sm:scale-[0.88] lg:scale-100 transition-transform origin-center">
+            {/* Ambient Backlight Glow Ring behind Yaseer */}
+            <div className="absolute w-[440px] h-[480px] rounded-full bg-gradient-to-b from-orange-500/25 via-amber-500/15 to-transparent blur-3xl pointer-events-none" />
 
             {/* Orbit Dashed Guideline Ring */}
             <div
@@ -238,31 +231,26 @@ export default function HeroSection() {
               className="absolute rounded-full border border-dashed border-white/15 pointer-events-none"
             />
 
-            {/* Central Portrait of Yaseer Adam (Reduced in size by ~30% with smooth frame) */}
+            {/* Seamless Natural Portrait of Yaseer Adam - NO BOX, NO BORDER */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.92 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.15 }}
-              className="relative z-10 w-[270px] h-[310px] sm:w-[320px] sm:h-[370px] rounded-[32px] p-1.5 bg-gradient-to-b from-orange-500/40 via-white/10 to-white/5 shadow-[0_0_60px_rgba(251,146,60,0.25)] backdrop-blur-sm"
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="relative z-10 w-[360px] h-[430px] sm:w-[420px] sm:h-[490px] lg:w-[460px] lg:h-[530px] flex items-center justify-center pointer-events-none select-none"
             >
-              <div className="w-full h-full rounded-[26px] overflow-hidden relative border border-white/15 bg-[#090a0d]">
-                <Image
-                  src="/images/port.png"
-                  alt="Yaseer K Adam"
-                  fill
-                  priority
-                  className="object-cover object-[50%_35%] hover:scale-105 transition-transform duration-700"
-                />
-                {/* Subtle vignette inside frame */}
-                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
-                <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-black/40 to-transparent" />
-              </div>
+              <Image
+                src="/images/port.png"
+                alt="Yaseer K Adam"
+                fill
+                priority
+                className="object-cover object-[50%_35%] [-webkit-mask-image:radial-gradient(ellipse_70%_78%_at_50%_45%,black_52%,transparent_100%)] [mask-image:radial-gradient(ellipse_70%_78%_at_50%_45%,black_52%,transparent_100%)] drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
+              />
             </motion.div>
 
             {/* Continuous 360° Revolving Orbit Ring */}
             <motion.div
               animate={{ rotate: 360 }}
-              transition={{ duration: 32, repeat: Infinity, ease: "linear" }}
+              transition={{ duration: 34, repeat: Infinity, ease: "linear" }}
               className="absolute flex items-center justify-center pointer-events-none z-20"
               style={{
                 width: orbitRadius * 2,
@@ -286,7 +274,7 @@ export default function HeroSection() {
                     {/* Counter-rotation to keep the badge upright */}
                     <motion.div
                       animate={{ rotate: -360 }}
-                      transition={{ duration: 32, repeat: Infinity, ease: "linear" }}
+                      transition={{ duration: 34, repeat: Infinity, ease: "linear" }}
                       whileHover={{ scale: 1.15 }}
                       className={`px-3.5 py-2 rounded-2xl bg-[#0b0c10]/90 backdrop-blur-xl border border-white/15 shadow-[0_8px_32px_rgba(0,0,0,0.7)] flex items-center gap-2.5 text-xs font-bold text-white transition-all cursor-pointer group select-none ${badge.accentBorder}`}
                     >
