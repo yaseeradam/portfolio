@@ -93,7 +93,7 @@ export default function Navbar() {
 
           <a
             href="/resume.pdf"
-            download="Yaseer_Adam_Resume.pdf"
+            download="Al-hafiz_YASIR_KABIR_ADAMU.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#ff6200] to-[#ff7e00] hover:from-[#e55800] hover:to-[#f07400] text-white font-semibold text-xs flex items-center gap-2 shadow-[0_0_20px_rgba(255,100,0,0.35)] transition-all group"
@@ -128,7 +128,7 @@ export default function Navbar() {
           <div className="pt-4 border-t border-white/10 flex items-center gap-3">
             <a
               href="/resume.pdf"
-              download="Yaseer_Adam_Resume.pdf"
+              download="Al-hafiz_YASIR_KABIR_ADAMU.pdf"
               className="w-full py-2.5 rounded-xl bg-orange-500 text-white text-center text-xs font-bold flex items-center justify-center gap-2"
             >
               <Download className="w-4 h-4" />
