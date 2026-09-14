@@ -95,3 +95,99 @@ export function GitIcon({ className = "w-4 h-4" }: { className?: string }) {
     </svg>
   );
 }
+
+export function PythonIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none">
+      <path d="M11.9 2c-3.1 0-4.9 1.4-4.9 3.5v2.6h5v.8H5c-2.3 0-3.5 1.7-3.5 4.3 0 2.8 1.3 4.3 3.5 4.3h1.7v-2.3c0-2.3 1.9-4.2 4.2-4.2h5V8.5c0-2.3-1.6-3.8-4-3.8V2zm-2.4 1.8c.6 0 1 .4 1 1s-.4 1-1 1-1-.4-1-1 .4-1 1-1z" fill="#3776AB" />
+      <path d="M12.1 22c3.1 0 4.9-1.4 4.9-3.5v-2.6h-5v-.8h7c2.3 0 3.5-1.7 3.5-4.3 0-2.8-1.3-4.3-3.5-4.3h-1.7v2.3c0 2.3-1.9 4.2-4.2 4.2h-5v2.5c0 2.3 1.6 3.8 4 3.8V22zm2.4-1.8c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1z" fill="#FFD43B" />
+    </svg>
+  );
+}
+
+export function PhpIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none">
+      <ellipse cx="12" cy="12" rx="10" ry="6" fill="#777BB4" />
+      <path d="M7 14V10h2c1 0 1.5.5 1.5 1s-.5 1-1.5 1H8v2H7zm4 0V10h1v4h-1zm3 0V10h2c1 0 1.5.5 1.5 1s-.5 1-1.5 1h-1v2h-1z" stroke="#FFFFFF" strokeWidth="1.2" />
+    </svg>
+  );
+}
+
+export function MongoDbIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none">
+      <path d="M12 2C11.5 4 8 8 8 13c0 3.8 2.5 6.8 4 8.5 1.5-1.7 4-4.7 4-8.5 0-5-3.5-9-4-11z" fill="#47A248" />
+      <path d="M12 2.5v17.5c.3-.3 4-4.5 4-7 0-5-3.5-9-4-10.5z" fill="#4CAF50" />
+    </svg>
+  );
+}
+
+export function MySqlIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none">
+      <path d="M4 16c2-4 6-6 10-5 3 .8 5 3 6 5-3-1-7-1-10 0-2 .7-4 1-6 0z" fill="#00758F" />
+      <circle cx="16" cy="10" r="1.5" fill="#F29111" />
+    </svg>
+  );
+}
+
+export function DockerIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none">
+      <path d="M22 13c-.5-1.5-1.7-2.5-3.2-2.7-.4-.8-1-1.5-1.8-2l-.5.5c.6.8.8 1.8.5 2.7-.7.2-1.5.8-1.8 1.5H3c-.6 2.5 1 5 3.5 6 3 1.2 7.5 1 10.5-.5 3-1.5 4.5-3.5 5-5.5z" fill="#2496ED" />
+      <rect x="7" y="10" width="2" height="2" fill="#2496ED" />
+      <rect x="10" y="10" width="2" height="2" fill="#2496ED" />
+      <rect x="13" y="10" width="2" height="2" fill="#2496ED" />
+      <rect x="10" y="7" width="2" height="2" fill="#2496ED" />
+    </svg>
+  );
+}
+
+export function VsCodeIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none">
+      <path d="M17.5 2L6 11.5 2 8.5v7l4-3 11.5 9.5 4.5-2V4l-4.5-2z" fill="#007ACC" />
+      <path d="M17.5 2v20l4.5-2V4l-4.5-2z" fill="#1F9CF0" />
+    </svg>
+  );
+}
+
+export function FigmaIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none">
+      <rect x="7" y="2" width="5" height="5" rx="2.5" fill="#F24E1E" />
+      <rect x="12" y="2" width="5" height="5" rx="2.5" fill="#FF7262" />
+      <rect x="7" y="7" width="5" height="5" rx="2.5" fill="#A259FF" />
+      <circle cx="14.5" cy="9.5" r="2.5" fill="#1ABCFE" />
+      <path d="M7 14.5a2.5 2.5 0 005 0v-2.5H7v2.5z" fill="#0ACF83" />
+    </svg>
+  );
+}
+
+export function FirebaseIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none">
+      <path d="M4 18l8 4 8-4-3-15-5 8-3-4-5 11z" fill="#FFCA28" />
+      <path d="M12 22l8-4-3-15-5 19z" fill="#FFA000" />
+      <path d="M12 11l-3-4-5 11 8 4V11z" fill="#F57C00" />
+    </svg>
+  );
+}
+
+export function ExpressIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none">
+      <text x="3" y="16" fill="#FFFFFF" fontSize="11" fontWeight="bold" fontFamily="sans-serif">ex</text>
+    </svg>
+  );
+}
+
+export function StripeIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none">
+      <rect width="24" height="24" rx="4" fill="#635BFF" />
+      <path d="M13.5 10.5c0-.8-.6-1.2-1.6-1.2-1.2 0-2.2.4-3 .9V8c.9-.4 2-.6 3.1-.6 2.4 0 3.9 1.2 3.9 3.2 0 3.1-4.2 2.6-4.2 3.9 0 .9.8 1.2 1.8 1.2 1.3 0 2.5-.5 3.3-1.1v2.2c-1 .5-2.2.7-3.4.7-2.6 0-4.2-1.3-4.2-3.3 0-3.3 4.3-2.7 4.3-3.9z" fill="#FFFFFF" />
+    </svg>
+  );
+}
