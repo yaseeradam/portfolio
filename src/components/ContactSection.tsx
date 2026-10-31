@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { Mail, Send, Check, Copy, MessageSquare } from "lucide-react";
 import { GithubIcon } from "@/components/icons/GithubIcon";
 

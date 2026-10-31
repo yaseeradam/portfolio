@@ -15,6 +15,7 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://github.com/yaseeradam/portfolio"),
   title: "Yaseer K Adam | Full-Stack & Mobile Software Engineer",
   description: "Portfolio of Yaseer K Adam - Full-Stack Developer & Mobile Engineer specializing in Next.js, React, Node.js, Flutter, and AI Systems.",
   keywords: ["Yaseer Adam", "Yaseer K Adam", "Full-Stack Developer", "Next.js", "React", "Flutter", "Software Engineer", "Portfolio"],

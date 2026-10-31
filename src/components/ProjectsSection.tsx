@@ -15,134 +15,13 @@ import {
   Rocket,
   ChevronRight,
 } from "lucide-react";
-import {
-  ReactIcon,
-  NextIcon,
-  TypeScriptIcon,
-  NodeIcon,
-  TailwindIcon,
-  JavaScriptIcon,
-  PythonIcon,
-  MongoDbIcon,
-  DockerIcon,
-  FirebaseIcon,
-  GitIcon,
-  PostgreSqlIcon,
-  StripeIcon,
-} from "@/components/icons/TechIcons";
+import Link from "next/link";
+import { projectsList } from "@/data/projects";
+import { TechIconBadge } from "@/components/ProjectTechIcon";
 
-interface Project {
-  id: string;
-  title: string;
-  categories: ("web" | "mobile" | "desktop" | "opensource")[];
-  badge: { label: string; color: string };
-  image: string;
-  description: string;
-  tags: { name: string; icon?: React.ReactNode }[];
-  liveUrl?: string;
-  githubUrl: string;
-}
+type CategoryFilter = "all" | "web" | "mobile" | "desktop" | "opensource";
 
-const projectsList: Project[] = [
-  {
-    id: "police-record-system",
-    title: "Police Record System",
-    categories: ["web", "desktop", "opensource"],
-    badge: { label: "Web App", color: "text-sky-400 bg-sky-500/10 border-sky-500/20" },
-    image: "/images/projects/police.png",
-    description:
-      "A modern digital records system for managing police cases, arrests, patrol logs and reports with an admin dashboard.",
-    tags: [
-      { name: "Next.js", icon: <NextIcon className="w-3.5 h-3.5 text-white" /> },
-      { name: "React", icon: <ReactIcon className="w-3.5 h-3.5" /> },
-      { name: "Tailwind", icon: <TailwindIcon className="w-3.5 h-3.5" /> },
-      { name: "PostgreSQL", icon: <PostgreSqlIcon className="w-3.5 h-3.5" /> },
-    ],
-    githubUrl: "https://github.com/yaseeradam/FrontalMindsDRS",
-  },
-  {
-    id: "academyhub-dashboard",
-    title: "AcademyHub Dashboard",
-    categories: ["web", "opensource"],
-    badge: { label: "Web App", color: "text-indigo-400 bg-indigo-500/10 border-indigo-500/20" },
-    image: "/images/projects/academyhub.png",
-    description:
-      "A complete school management system with student records, fees, results and analytics.",
-    tags: [
-      { name: "Next.js", icon: <NextIcon className="w-3.5 h-3.5 text-white" /> },
-      { name: "React", icon: <ReactIcon className="w-3.5 h-3.5" /> },
-      { name: "Tailwind", icon: <TailwindIcon className="w-3.5 h-3.5" /> },
-      { name: "MongoDB", icon: <MongoDbIcon className="w-3.5 h-3.5" /> },
-    ],
-    liveUrl: "https://myacademy-pi.vercel.app",
-    githubUrl: "https://github.com/yaseeradam/AcademyHub",
-  },
-  {
-    id: "whatsapp-bot",
-    title: "AcademyHub WhatsApp Bot",
-    categories: ["web", "opensource"],
-    badge: { label: "AI / Bot", color: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20" },
-    image: "/images/projects/whatsapp_bot.png",
-    description:
-      "An AI-powered WhatsApp chatbot that brings the entire school portal into WhatsApp. Parents can check reports, fees and more — in plain English.",
-    tags: [
-      { name: "Node.js", icon: <NodeIcon className="w-3.5 h-3.5" /> },
-      { name: "WhatsApp API", icon: <span className="text-[10px] font-bold text-emerald-400">WA</span> },
-      { name: "OpenAI", icon: <span className="text-[10px] font-bold text-teal-400">AI</span> },
-    ],
-    liveUrl: "https://aiacademy-sandy.vercel.app",
-    githubUrl: "https://github.com/yaseeradam/aiacademy",
-  },
-  {
-    id: "ai-marketing",
-    title: "AI Marketing Landing Page",
-    categories: ["web", "opensource"],
-    badge: { label: "Web App", color: "text-sky-400 bg-sky-500/10 border-sky-500/20" },
-    image: "/images/projects/ai_marketing.png",
-    description:
-      "A high-converting landing page for an AI marketing consultancy with modern design and animations.",
-    tags: [
-      { name: "Next.js", icon: <NextIcon className="w-3.5 h-3.5 text-white" /> },
-      { name: "Tailwind", icon: <TailwindIcon className="w-3.5 h-3.5" /> },
-      { name: "Framer", icon: <span className="text-[10px] font-bold text-purple-400">F</span> },
-    ],
-    liveUrl: "https://aimarket-mauve.vercel.app",
-    githubUrl: "https://github.com/yaseeradam/AIMARKET",
-  },
-  {
-    id: "taskmaster",
-    title: "TaskMaster (To-Do App)",
-    categories: ["mobile", "opensource"],
-    badge: { label: "Mobile App", color: "text-pink-400 bg-pink-500/10 border-pink-500/20" },
-    image: "/images/projects/taskmaster.png",
-    description:
-      "A simple and effective task management app with reminders, categories and local storage.",
-    tags: [
-      { name: "React Native", icon: <ReactIcon className="w-3.5 h-3.5" /> },
-      { name: "Expo", icon: <span className="text-[10px] font-bold text-white">E</span> },
-      { name: "SQLite", icon: <span className="text-[10px] font-bold text-sky-400">SQL</span> },
-    ],
-    githubUrl: "https://github.com/yaseeradam/checkpay",
-  },
-  {
-    id: "ecommerce-store",
-    title: "E-Commerce Store",
-    categories: ["web", "opensource"],
-    badge: { label: "Web App", color: "text-sky-400 bg-sky-500/10 border-sky-500/20" },
-    image: "/images/projects/ecommerce.png",
-    description:
-      "A modern e-commerce website for a perfume brand with smooth animations and secure checkout.",
-    tags: [
-      { name: "Next.js", icon: <NextIcon className="w-3.5 h-3.5 text-white" /> },
-      { name: "React", icon: <ReactIcon className="w-3.5 h-3.5" /> },
-      { name: "Stripe", icon: <StripeIcon className="w-3.5 h-3.5" /> },
-    ],
-    liveUrl: "https://globalpeak-delta.vercel.app",
-    githubUrl: "https://github.com/yaseeradam/globalpeak",
-  },
-];
-
-const filterTabs = [
+const filterTabs: { id: CategoryFilter; label: string }[] = [
   { id: "all", label: "All" },
   { id: "web", label: "Web Apps" },
   { id: "mobile", label: "Mobile Apps" },
@@ -151,30 +30,31 @@ const filterTabs = [
 ];
 
 const sidebarTechList = [
-  { name: "Next.js", icon: <NextIcon className="w-3.5 h-3.5 text-white" /> },
-  { name: "React", icon: <ReactIcon className="w-3.5 h-3.5" /> },
-  { name: "Tailwind CSS", icon: <TailwindIcon className="w-3.5 h-3.5" /> },
-  { name: "Node.js", icon: <NodeIcon className="w-3.5 h-3.5" /> },
-  { name: "MongoDB", icon: <MongoDbIcon className="w-3.5 h-3.5" /> },
-  { name: "PostgreSQL", icon: <PostgreSqlIcon className="w-3.5 h-3.5" /> },
-  { name: "TypeScript", icon: <TypeScriptIcon className="w-3.5 h-3.5 rounded" /> },
-  { name: "JavaScript", icon: <JavaScriptIcon className="w-3.5 h-3.5 rounded" /> },
-  { name: "Python", icon: <PythonIcon className="w-3.5 h-3.5" /> },
-  { name: "React Native", icon: <ReactIcon className="w-3.5 h-3.5" /> },
-  { name: "Expo", icon: <span className="text-[10px] font-bold text-white">E</span> },
-  { name: "Docker", icon: <DockerIcon className="w-3.5 h-3.5" /> },
-  { name: "Git & GitHub", icon: <GitIcon className="w-3.5 h-3.5" /> },
-  { name: "Firebase", icon: <FirebaseIcon className="w-3.5 h-3.5" /> },
-  { name: "Framer", icon: <span className="text-[10px] font-bold text-purple-400">F</span> },
+  { name: "Next.js", iconKey: "next" },
+  { name: "React", iconKey: "react" },
+  { name: "Tailwind CSS", iconKey: "tailwind" },
+  { name: "Node.js", iconKey: "node" },
+  { name: "MongoDB", iconKey: "mongodb" },
+  { name: "PostgreSQL", iconKey: "postgres" },
+  { name: "TypeScript", iconKey: "typescript" },
+  { name: "JavaScript", iconKey: "javascript" },
+  { name: "Python", iconKey: "python" },
+  { name: "React Native", iconKey: "react" },
+  { name: "Expo", iconKey: "expo" },
+  { name: "Docker", iconKey: "docker" },
+  { name: "Git & GitHub", iconKey: "git" },
+  { name: "Firebase", iconKey: "firebase" },
+  { name: "Framer", iconKey: "framer" },
 ];
 
 export default function ProjectsSection() {
-  const [activeTab, setActiveTab] = useState<string>("all");
+  const [activeTab, setActiveTab] = useState<CategoryFilter>("all");
 
   const filteredProjects =
     activeTab === "all"
       ? projectsList
-      : projectsList.filter((p) => p.categories.includes(activeTab as any));
+      : projectsList.filter((p) => p.categories.includes(activeTab));
+
 
   return (
     <section
@@ -290,7 +170,10 @@ export default function ProjectsSection() {
                   {/* Card Body */}
                   <div>
                     {/* Project Preview Image & Badge */}
-                    <div className="relative w-full h-[185px] sm:h-[195px] bg-[#050608] overflow-hidden border-b border-white/5">
+                    <Link
+                      href={`/projects/${project.id}`}
+                      className="block relative w-full h-[185px] sm:h-[195px] bg-[#050608] overflow-hidden border-b border-white/5 cursor-pointer"
+                    >
                       <Image
                         src={project.image}
                         alt={project.title}
@@ -306,13 +189,15 @@ export default function ProjectsSection() {
                           {project.badge.label}
                         </span>
                       </div>
-                    </div>
+                    </Link>
 
                     {/* Content */}
                     <div className="p-6 space-y-3">
-                      <h3 className="text-lg font-bold text-white group-hover:text-[#FBA919] transition-colors leading-tight">
-                        {project.title}
-                      </h3>
+                      <Link href={`/projects/${project.id}`}>
+                        <h3 className="text-lg font-bold text-white group-hover:text-[#FBA919] transition-colors leading-tight">
+                          {project.title}
+                        </h3>
+                      </Link>
                       <p className="text-xs text-zinc-400 leading-relaxed font-normal line-clamp-3">
                         {project.description}
                       </p>
@@ -324,7 +209,7 @@ export default function ProjectsSection() {
                             key={tag.name}
                             className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-[11px] font-medium text-zinc-300 flex items-center gap-1.5"
                           >
-                            {tag.icon}
+                            <TechIconBadge iconKey={tag.iconKey} className="w-3.5 h-3.5" />
                             <span>{tag.name}</span>
                           </span>
                         ))}
@@ -334,16 +219,13 @@ export default function ProjectsSection() {
 
                   {/* Card Footer: View Project Links with Real GitHub & Live URLs */}
                   <div className="px-6 pb-6 pt-2 flex items-center justify-between">
-                    <a
-                      href={project.liveUrl || project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Link
+                      href={`/projects/${project.id}`}
                       className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FBA919] hover:text-amber-300 transition-colors group/link"
                     >
                       <span>View Project</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" />
-                      <ExternalLink className="w-3 h-3 text-zinc-400" />
-                    </a>
+                    </Link>
 
                     <a
                       href={project.githubUrl}
@@ -394,7 +276,7 @@ export default function ProjectsSection() {
                     key={t.name}
                     className="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-medium text-zinc-300 flex items-center gap-2 hover:border-white/20 transition-colors cursor-default"
                   >
-                    {t.icon}
+                    <TechIconBadge iconKey={t.iconKey} className="w-3.5 h-3.5" />
                     <span>{t.name}</span>
                   </span>
                 ))}
